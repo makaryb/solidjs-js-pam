@@ -1,15 +1,14 @@
 import { Show } from 'solid-js';
-import type { Component } from 'solid-js';
 
-import { DisplayData } from '~/components/DisplayData/DisplayData.js';
-import { Link } from '~/components/Link/Link.js';
-import { Page } from '~/components/Page/Page.js';
-import { TonConnectButton } from '~/tonconnect/TonConnectButton.js';
+import { DisplayData } from '~/components/DisplayData/DisplayData.jsx';
+import { Link } from '~/components/Link/Link.jsx';
+import { Page } from '~/components/Page/Page.jsx';
+import { TonConnectButton } from '~/tonconnect/TonConnectButton.jsx';
 import { useTonWallet } from '~/tonconnect/useTonWallet.js';
 
 import './TonConnectPage.css';
 
-export const TonConnectPage: Component = () => {
+export function TonConnectPage() {
   const wallet = useTonWallet();
 
   return (
@@ -71,4 +70,4 @@ export const TonConnectPage: Component = () => {
       </div>
     </Page>
   );
-};
+}

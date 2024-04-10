@@ -1,7 +1,10 @@
 import { HashNavigator, isPageReload } from '@tma.js/sdk';
-import type { HashNavigatorOptions } from '@tma.js/sdk';
 
-function instantiate(options?: HashNavigatorOptions): HashNavigator {
+/**
+ * @param {import('@tma.js/sdk').HashNavigatorOptions} [options]
+ * @returns {import('@tma.js/sdk').HashNavigator}
+ */
+function instantiate(options) {
   // If page was reloaded, we assume that navigator had to previously save
   // its state in the session storage.
   if (isPageReload()) {
@@ -23,9 +26,10 @@ function instantiate(options?: HashNavigatorOptions): HashNavigator {
 
 /**
  * Creates Telegram Mini Apps navigator.
- * @param options - navigator creation options.
+ * @param {import('@tma.js/sdk').HashNavigatorOptions} [options]
+ * @returns {import('@tma.js/sdk').HashNavigator}
  */
-export function createNavigator(options?: HashNavigatorOptions): HashNavigator {
+export function createNavigator(options) {
   const navigator = instantiate(options);
 
   const saveState = () => sessionStorage.setItem('hash-navigator-state', JSON.stringify({

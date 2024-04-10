@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import { Root } from '~/components/Root.js';
+import { Root } from '~/components/Root.jsx';
 
 import './index.css';
 
@@ -13,4 +13,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => (<Root/>), root!);
+render(() => (<Root/>), root);

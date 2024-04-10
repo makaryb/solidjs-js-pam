@@ -1,19 +1,21 @@
-import type { Component } from 'solid-js';
+import { IndexPage } from '~/pages/IndexPage/IndexPage.jsx';
+import { InitDataPage } from '~/pages/InitDataPage/InitDataPage.jsx';
+import { LaunchParamsPage } from '~/pages/LaunchParamsPage.jsx';
+import { ThemeParamsPage } from '~/pages/ThemeParamsPage.jsx';
+import { TonConnectPage } from '~/pages/TonConnectPage/TonConnectPage.jsx';
 
-import { IndexPage } from '~/pages/IndexPage/IndexPage.js';
-import { InitDataPage } from '~/pages/InitDataPage/InitDataPage.js';
-import { LaunchParamsPage } from '~/pages/LaunchParamsPage.js';
-import { ThemeParamsPage } from '~/pages/ThemeParamsPage.js';
-import { TonConnectPage } from '~/pages/TonConnectPage/TonConnectPage.js';
+/**
+ * @typedef {object} Route
+ * @property {string} path
+ * @property {import('solid-js').Component} Component
+ * @property {string} [title]
+ * @property {import('solid-js').JSXElement} [Icon]
+ */
 
-interface Route {
-  path: string;
-  Component: Component;
-  title?: string;
-  Icon?: Component;
-}
-
-export const routes: Route[] = [
+/**
+ * @type {Route[]}
+ */
+export const routes = [
   { path: '/', Component: IndexPage },
   { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
   { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },

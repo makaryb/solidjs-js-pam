@@ -1,10 +1,9 @@
 import { onCleanup, onMount } from 'solid-js';
-import type { Component } from 'solid-js';
 
 import { useTonConnectUI } from '~/tonconnect/TonConnectUIContext.js';
 
-export const TonConnectButton: Component = () => {
-  const [_, { setUIOptions }] = useTonConnectUI();
+export function TonConnectButton() {
+  const [, { setUIOptions }] = useTonConnectUI();
   const buttonRootId = 'ton-connect-button';
 
   onMount(() => {
@@ -16,4 +15,4 @@ export const TonConnectButton: Component = () => {
   });
 
   return <div id={buttonRootId} style={{ width: 'fit-content' }}/>;
-};
+}

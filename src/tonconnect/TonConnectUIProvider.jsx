@@ -1,15 +1,19 @@
 import { TonConnectUI } from '@tonconnect/ui';
 import { createMemo } from 'solid-js';
-import type { TonConnectUiOptions } from '@tonconnect/ui';
-import type { Component, ParentProps } from 'solid-js';
 
 import { TonConnectUIContext } from '~/tonconnect/TonConnectUIContext.js';
 
-export interface TonConnectUIProviderProps extends ParentProps {
-  manifestUrl: string;
-}
+/**
+ * @typedef TonConnectUIProviderProps
+ * @property {import('solid-js').JSXElement} [children]
+ * @property {String} manifestUrl
+ */
 
-export const TonConnectUIProvider: Component<TonConnectUIProviderProps> = (props) => {
+/**
+ * @param {TonConnectUIProviderProps} props
+ * @constructor
+ */
+export function TonConnectUIProvider(props) {
   const tonConnectUI = createMemo(() => {
     return new TonConnectUI({
       manifestUrl: props.manifestUrl,
@@ -21,7 +25,7 @@ export const TonConnectUIProvider: Component<TonConnectUIProviderProps> = (props
       value={[
         tonConnectUI,
         {
-          setUIOptions(options: TonConnectUiOptions) {
+          setUIOptions(options) {
             tonConnectUI().uiOptions = options;
           },
         },
@@ -30,4 +34,4 @@ export const TonConnectUIProvider: Component<TonConnectUIProviderProps> = (props
       {props.children}
     </TonConnectUIContext.Provider>
   );
-};
+}

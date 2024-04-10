@@ -1,16 +1,13 @@
 import { createRouter as createSolidRouter } from '@solidjs/router';
 import { getHash } from '@tma.js/sdk';
-import type { BaseRouterProps } from '@solidjs/router';
-import type { HashNavigator, HashNavigatorEventListener } from '@tma.js/sdk';
-import type { Component } from 'solid-js';
 
 /**
  * Guard against selector being an invalid CSS selector.
- * @param selector - CSS selector.
+ * @param {String} selector - CSS selector.
  */
-function querySelector<T extends Element>(selector: string) {
+function querySelector(selector) {
   try {
-    return document.querySelector<T>(selector);
+    return document.querySelector < T > (selector);
   } catch (e) {
     return null;
   }
@@ -18,11 +15,11 @@ function querySelector<T extends Element>(selector: string) {
 
 /**
  * Scrolls to specified hash.
- * @param hash - hash to scroll to.
- * @param fallbackTop - should scroll be performed to the beginning of the page in case
+ * @param {String} hash - hash to scroll to.
+ * @param {Boolean} fallbackTop - should scroll be performed to the beginning of the page in case
  * hash was not found on the page.
  */
-function scrollToHash(hash: string, fallbackTop: boolean) {
+function scrollToHash(hash, fallbackTop) {
   const el = querySelector(`#${hash}`);
   if (el) {
     el.scrollIntoView();
@@ -36,9 +33,10 @@ function scrollToHash(hash: string, fallbackTop: boolean) {
 
 /**
  * Creates new Router for the application.
- * @param navigator - @tma.js navigator.
+ * @param {import('@tma.js/sdk').HashNavigator} navigator - @tma.js navigator.
+ * @returns {import('solid-js').Component<import('@solidjs/router').BaseRouterProps>}
  */
-export function createRouter(navigator: HashNavigator): Component<BaseRouterProps> {
+export function createRouter(navigator) {
   return createSolidRouter({
     // Router calls this getter whenever it wants to get actual navigation state.
     get: () => navigator.path,
@@ -64,28 +62,24 @@ export function createRouter(navigator: HashNavigator): Component<BaseRouterProp
 
     // This function is called when Router context is initialized. It is the best place to
     // bind to navigator state changes, which could occur outside.
-    init: (notify: (value: string) => void) => {
-      const onChange: HashNavigatorEventListener<'change'> = (event) => {
-        const {
-          to: {
-            hash,
-            pathname,
-            search,
-          },
-        } = event;
+    init: (notify) => navigator.on('change', (event) => {
+      const {
+        to: {
+          hash,
+          pathname,
+          search,
+        },
+      } = event;
 
-        notify(`${pathname}${search}${hash}`);
-      };
-
-      return navigator.on('change', onChange);
-    },
+      notify(`${pathname}${search}${hash}`);
+    }),
 
     utils: {
-      go(delta: number) {
+      go(delta) {
         void navigator.go(delta);
       },
-      renderPath: (path: string) => `#${path}`,
-      parsePath: (str: string) => {
+      renderPath: (path) => `#${path}`,
+      parsePath: (str) => {
         const to = str.replace(/^.*?#/, '');
         if (to.startsWith('/')) {
           return to;

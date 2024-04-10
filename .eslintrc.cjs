@@ -1,26 +1,19 @@
-function regexp(regex) {
-  return [
-    new RegExp(regex.source + '.*[^\\u0000]$').source,
-    regex.source,
-  ];
-}
-
 module.exports = {
   extends: [
     'airbnb-base',
-    'airbnb-typescript/base',
-    'plugin:solid/typescript',
+    'plugin:solid/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.json',
-    sourceType: 'module',
-    ecmaVersion: 'latest',
-  },
   plugins: ['solid', 'simple-import-sort'],
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+    babelOptions: {
+      babelrc: false,
+      configFile: false,
+      presets: ['@babel/preset-env', 'babel-preset-solid'],
+    },
+  },
   rules: {
-    '@typescript-eslint/consistent-type-imports': 'error',
-    '@typescript-eslint/indent': 0,
     // Sometimes this rule decreases readability.
     'arrow-body-style': 0,
     'consistent-return': 0,
@@ -65,23 +58,23 @@ module.exports = {
       groups: [
         // Node.js builtins prefixed with `node:`.
         // node:fs
-        regexp(/^node:/),
+        [/^node:/.source],
 
         // Packages.
         // solid-js
-        regexp(/^@?\w/),
+        [/^@?\w/.source],
 
-        // Tsconfig alias.
+        // Jsconfig alias.
         // ~/helpers
-        regexp(/^~\//),
+        [/^~\//.source],
 
         // Parent imports.
         // ../Typography.js
-        regexp(/^\.\.\//),
+        [/^\.\.\//.source],
 
         // Current folder imports.
         // ./utils.js
-        regexp(/^\.\/.+\.(?!s?css)/),
+        [/^\.\/.+\.(?!s?css)/.source],
 
         // Styles.
         // ./Typography.css

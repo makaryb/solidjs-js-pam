@@ -1,15 +1,20 @@
 import { A } from '@solidjs/router';
 import { classNames } from '@tma.js/sdk';
 import { useUtils } from '@tma.js/sdk-solid';
-import type { AnchorProps } from '@solidjs/router';
-import type { Component } from 'solid-js';
 
 import './Link.css';
 
-export const Link: Component<AnchorProps> = (props) => {
+/**
+ * @param {import('@solidjs/router').AnchorProps} props
+ * @return {import('solid-js').JSXElement}
+ */
+export function Link(props) {
   const utils = useUtils();
 
-  const onClick = (e: MouseEvent) => {
+  /**
+   * @param {MouseEvent} e
+   */
+  const onClick = (e) => {
     // Compute if target path is external. In this case we would like to open link using
     // TMA method.
     const targetUrl = new URL(props.href, window.location.toString());
@@ -30,4 +35,4 @@ export const Link: Component<AnchorProps> = (props) => {
       class={classNames(props.class, 'link')}
     />
   );
-};
+}

@@ -1,21 +1,21 @@
-import { isRGB, type RGB as RGBType } from '@tma.js/sdk';
+import { isRGB } from '@tma.js/sdk';
 import { For, Match, Switch } from 'solid-js';
-import type { Component, JSXElement } from 'solid-js';
 
-import { RGB } from '~/components/RGB/RGB.js';
+import { RGB } from '~/components/RGB/RGB.jsx';
 
 import './DisplayData.css';
 
-export interface DisplayDataRow {
-  title: string;
-  value?: RGBType | string | boolean | JSXElement;
-}
+/**
+ * @typedef {object} DisplayDataRow
+ * @property {string} title
+ * @property {string | boolean | import('solid-js').JSXElement | import('@tma.js/sdk').RGB} [value]
+ */
 
-export interface DisplayDataProps {
-  rows: DisplayDataRow[];
-}
-
-export const DisplayData: Component<DisplayDataProps> = (props) => {
+/**
+ * @param {{ rows: DisplayDataRow[] }} props
+ * @return {import('solid-js').JSXElement}
+ */
+export function DisplayData(props) {
   return (
     <div>
       <For each={props.rows}>
@@ -37,4 +37,4 @@ export const DisplayData: Component<DisplayDataProps> = (props) => {
       </For>
     </div>
   );
-};
+}

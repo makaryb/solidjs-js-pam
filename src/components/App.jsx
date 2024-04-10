@@ -3,7 +3,7 @@ import { For, onCleanup } from 'solid-js';
 
 import { createNavigator } from '~/navigation/createNavigator.js';
 import { createRouter } from '~/navigation/createRouter.js';
-import { routes } from '~/navigation/routes.js';
+import { routes } from '~/navigation/routes.jsx';
 
 export function App() {
   // Create new application navigator and attach it to the browser history, so it could modify

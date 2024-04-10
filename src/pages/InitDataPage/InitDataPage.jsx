@@ -1,15 +1,17 @@
-import { useInitData, useInitDataRaw, useLaunchParams } from '@tma.js/sdk-solid';
+import { useInitData, useInitDataRaw } from '@tma.js/sdk-solid';
 import { createMemo, Show } from 'solid-js';
-import type { User } from '@tma.js/sdk';
-import type { Component } from 'solid-js';
 
-import { DisplayData, type DisplayDataRow } from '~/components/DisplayData/DisplayData.js';
-import { Link } from '~/components/Link/Link.js';
-import { Page } from '~/components/Page/Page.js';
+import { DisplayData } from '~/components/DisplayData/DisplayData.jsx';
+import { Link } from '~/components/Link/Link.jsx';
+import { Page } from '~/components/Page/Page.jsx';
 
 import './InitDataPage.css';
 
-function getUserRows(user: User): DisplayDataRow[] {
+/**
+ * @param {import('@tma.js/sdk').User} [user]
+ * @returns {DisplayDataRow[]}
+ */
+function getUserRows(user) {
   return [
     { title: 'id', value: user.id.toString() },
     { title: 'last_name', value: user.lastName },
@@ -20,13 +22,11 @@ function getUserRows(user: User): DisplayDataRow[] {
   ];
 }
 
-export const InitDataPage: Component = () => {
+export function InitDataPage() {
   const initData = useInitData();
   const initDataRaw = useInitDataRaw();
-  console.log(useLaunchParams());
 
-  const initDataRows = createMemo<DisplayDataRow[] | undefined>(() => {
-    console.log(initData(), initDataRaw());
+  const initDataRows = createMemo(() => {
     const complete = initData();
     const raw = initDataRaw();
 
@@ -46,17 +46,17 @@ export const InitDataPage: Component = () => {
       : undefined;
   });
 
-  const userRows = createMemo<DisplayDataRow[] | undefined>(() => {
+  const userRows = createMemo(() => {
     const user = initData()?.user;
     return user ? getUserRows(user) : undefined;
   });
 
-  const receiverRows = createMemo<DisplayDataRow[] | undefined>(() => {
+  const receiverRows = createMemo(() => {
     const receiver = initData()?.receiver;
     return receiver ? getUserRows(receiver) : undefined;
   });
 
-  const chatRows = createMemo<DisplayDataRow[] | undefined>(() => {
+  const chatRows = createMemo(() => {
     const chat = initData()?.chat;
     return chat
       ? [
@@ -116,4 +116,4 @@ export const InitDataPage: Component = () => {
       </Show>
     </Page>
   );
-};
+}

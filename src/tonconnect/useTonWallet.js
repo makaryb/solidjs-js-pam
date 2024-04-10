@@ -1,6 +1,4 @@
 import { createEffect, createSignal, onCleanup } from 'solid-js';
-import type { ConnectedWallet, Wallet, WalletInfoWithOpenMethod } from '@tonconnect/ui';
-import type { Accessor } from 'solid-js';
 
 import { useTonConnectUI } from './useTonConnectUI.js';
 
@@ -9,14 +7,14 @@ import { useTonConnectUI } from './useTonConnectUI.js';
  * @see Original React code:
  * https://github.com/ton-connect/sdk/blob/main/packages/ui-react/src/hooks/useTonWallet.ts
  */
-export function useTonWallet(): Accessor<Wallet | (Wallet & WalletInfoWithOpenMethod) | null> {
+export function useTonWallet() {
   const [tonConnectUI] = useTonConnectUI();
-  const [wallet, setWallet] = createSignal<Wallet |(Wallet & WalletInfoWithOpenMethod) | null>(
+  const [wallet, setWallet] = createSignal(
     tonConnectUI().wallet || null,
   );
 
   createEffect(() => onCleanup(
-    tonConnectUI().onStatusChange((value: ConnectedWallet | null) => {
+    tonConnectUI().onStatusChange((value) => {
       setWallet(value);
     }),
   ));

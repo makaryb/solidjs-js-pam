@@ -5,7 +5,7 @@ Mini Apps platform using the following technologies:
 
 - [Solid.js](https://www.solidjs.com/)
 - [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
-- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [@tma.js SDK](https://docs.telegram-mini-apps.com/packages/tma-js-sdk)
 - [Vite](https://vitejs.dev/)
 
