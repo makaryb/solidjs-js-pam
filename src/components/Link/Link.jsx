@@ -1,6 +1,5 @@
 import { A } from '@solidjs/router';
-import { classNames } from '@tma.js/sdk';
-import { useUtils } from '@tma.js/sdk-solid';
+import { classNames, useUtils } from '@tma.js/sdk-solid';
 
 import './Link.css';
 

@@ -1,14 +1,14 @@
-import { isRGB } from '@tma.js/sdk';
+import { isRGB } from '@tma.js/sdk-solid';
 import { For, Match, Switch } from 'solid-js';
 
-import { RGB } from '~/components/RGB/RGB.jsx';
+import { RGB } from '@/components/RGB/RGB.jsx';
 
 import './DisplayData.css';
 
 /**
  * @typedef {object} DisplayDataRow
  * @property {string} title
- * @property {string | boolean | import('solid-js').JSXElement | import('@tma.js/sdk').RGB} [value]
+ * @property {string | boolean | import('solid-js').JSXElement | import('@tma.js/sdk-solid').RGB} [value]
  */
 
 /**

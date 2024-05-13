@@ -1,7 +1,7 @@
 import { TonConnectUI } from '@tonconnect/ui';
 import { createMemo } from 'solid-js';
 
-import { TonConnectUIContext } from '~/tonconnect/TonConnectUIContext.js';
+import { TonConnectUIContext } from '@/tonconnect/TonConnectUIContext.js';
 
 /**
  * @typedef TonConnectUIProviderProps

@@ -1,4 +1,4 @@
-import { classNames } from '@tma.js/sdk';
+import { classNames } from '@tma.js/sdk-solid';
 import { splitProps } from 'solid-js';
 
 import './RGB.css';
@@ -6,7 +6,7 @@ import './RGB.css';
 /**
  * @typedef RGBProps
  * @extends {import('solid-js').JSX.IntrinsicElements['span']}
- * @property {import('@tma.js/sdk').RGB} color
+ * @property {import('@tma.js/sdk-solid').RGB} color
  */
 
 /**

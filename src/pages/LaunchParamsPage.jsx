@@ -1,11 +1,11 @@
-import { useLaunchParams } from '@tma.js/sdk-solid';
+import { retrieveLaunchParams } from '@tma.js/sdk-solid';
 
-import { DisplayData } from '~/components/DisplayData/DisplayData.jsx';
-import { Link } from '~/components/Link/Link.jsx';
-import { Page } from '~/components/Page/Page.jsx';
+import { DisplayData } from '@/components/DisplayData/DisplayData.jsx';
+import { Link } from '@/components/Link/Link.jsx';
+import { Page } from '@/components/Page/Page.jsx';
 
 export function LaunchParamsPage() {
-  const lp = useLaunchParams();
+  const lp = retrieveLaunchParams();
 
   return (
     <Page

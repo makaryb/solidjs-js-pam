@@ -1,6 +1,6 @@
 import { useContext } from 'solid-js';
 
-import { TonConnectUIContext } from '~/tonconnect/TonConnectUIContext.js';
+import { TonConnectUIContext } from '@/tonconnect/TonConnectUIContext.js';
 
 /**
  * @returns {TonConnectUIContextType}

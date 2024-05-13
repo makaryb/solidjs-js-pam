@@ -1,14 +1,14 @@
-import { useInitData, useInitDataRaw } from '@tma.js/sdk-solid';
+import { retrieveLaunchParams, useInitData } from '@tma.js/sdk-solid';
 import { createMemo, Show } from 'solid-js';
 
-import { DisplayData } from '~/components/DisplayData/DisplayData.jsx';
-import { Link } from '~/components/Link/Link.jsx';
-import { Page } from '~/components/Page/Page.jsx';
+import { DisplayData } from '@/components/DisplayData/DisplayData.jsx';
+import { Link } from '@/components/Link/Link.jsx';
+import { Page } from '@/components/Page/Page.jsx';
 
 import './InitDataPage.css';
 
 /**
- * @param {import('@tma.js/sdk').User} [user]
+ * @param {import('@tma.js/sdk-solid').User} [user]
  * @returns {DisplayDataRow[]}
  */
 function getUserRows(user) {
@@ -24,15 +24,14 @@ function getUserRows(user) {
 
 export function InitDataPage() {
   const initData = useInitData();
-  const initDataRaw = useInitDataRaw();
+  const initDataRaw = retrieveLaunchParams().initDataRaw;
 
   const initDataRows = createMemo(() => {
     const complete = initData();
-    const raw = initDataRaw();
 
-    return complete && raw
+    return complete && initDataRaw
       ? [
-        { title: 'raw', value: raw },
+        { title: 'raw', value: initDataRaw },
         { title: 'auth_date', value: complete.authDate.toLocaleString() },
         { title: 'auth_date (raw)', value: complete.authDate.getTime() / 1000 },
         { title: 'hash', value: complete.hash },

@@ -1,9 +1,9 @@
 import { For, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { Link } from '~/components/Link/Link.jsx';
-import { Page } from '~/components/Page/Page.jsx';
-import { routes } from '~/navigation/routes.jsx';
+import { Link } from '@/components/Link/Link.jsx';
+import { Page } from '@/components/Page/Page.jsx';
+import { routes } from '@/navigation/routes.jsx';
 
 import './IndexPage.css';
 

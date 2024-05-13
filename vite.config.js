@@ -23,8 +23,8 @@ export default defineConfig({
   // server: {
   //   port: 443,
   //   https: {
-  //     cert: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-cert.pem')),
-  //     key: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-key.pem')),
+  //     cert: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './tma.internal.pem')),
+  //     key: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './tma.internal-key.pem')),
   //   },
   //   host: 'tma.internal',
   // },
@@ -33,8 +33,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '~': resolve(dirname(fileURLToPath(import.meta.url)), './src'),
-    },
+      '@': resolve(dirname(fileURLToPath(import.meta.url)), './src'),
+    }
   },
   publicDir: './public',
 });
