@@ -26,7 +26,7 @@ module.exports = {
     babelOptions: {
       babelrc: false,
       configFile: false,
-      presets: ['@babel/preset-env', '@babel/preset-react'],
+      presets: ['@babel/preset-env', 'babel-preset-solid'],
     },
   },
   plugins: [
