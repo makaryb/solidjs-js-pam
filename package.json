@@ -29,6 +29,7 @@
     "@babel/core": "^7.24.4",
     "@babel/eslint-parser": "^7.24.1",
     "@babel/preset-env": "^7.24.4",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "babel-preset-solid": "^1.8.17",
     "eslint": "^8.57.0",
     "eslint-plugin-solid": "^0.14.0",
