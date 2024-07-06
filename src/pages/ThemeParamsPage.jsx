@@ -1,4 +1,4 @@
-import { useThemeParams } from '@tma.js/sdk-solid';
+import { useThemeParams } from '@telegram-apps/sdk-solid';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.jsx';
 import { Link } from '@/components/Link/Link.jsx';

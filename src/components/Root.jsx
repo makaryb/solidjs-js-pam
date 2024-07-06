@@ -1,4 +1,4 @@
-import { retrieveLaunchParams, SDKProvider } from '@tma.js/sdk-solid';
+import { retrieveLaunchParams, SDKProvider } from '@telegram-apps/sdk-solid';
 import { ErrorBoundary, Switch, Match } from 'solid-js';
 
 import { App } from '@/components/App.jsx';
@@ -22,7 +22,7 @@ function Inner() {
       </SDKProvider>
     </TonConnectUIProvider>
   );
-};
+}
 
 /**
  * @returns {Node | JSX.ArrayElement | string | number | boolean}
@@ -55,4 +55,4 @@ export function Root() {
       <Inner/>
     </ErrorBoundary>
   );
-};
+}

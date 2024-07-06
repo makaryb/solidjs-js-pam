@@ -1,4 +1,4 @@
-import { classNames } from '@tma.js/sdk-solid';
+import { classNames } from '@telegram-apps/sdk-solid';
 import { splitProps } from 'solid-js';
 
 import './RGB.css';
@@ -6,7 +6,7 @@ import './RGB.css';
 /**
  * @typedef RGBProps
  * @extends {import('solid-js').JSX.IntrinsicElements['span']}
- * @property {import('@tma.js/sdk-solid').RGB} color
+ * @property {import('@telegram-apps/sdk-solid').RGB} color
  */
 
 /**

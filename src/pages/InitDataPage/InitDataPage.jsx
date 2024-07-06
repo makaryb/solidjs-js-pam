@@ -1,4 +1,4 @@
-import { retrieveLaunchParams, useInitData } from '@tma.js/sdk-solid';
+import { retrieveLaunchParams, useInitData } from '@telegram-apps/sdk-solid';
 import { createMemo, Show } from 'solid-js';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.jsx';
@@ -8,7 +8,7 @@ import { Page } from '@/components/Page/Page.jsx';
 import './InitDataPage.css';
 
 /**
- * @param {import('@tma.js/sdk-solid').User} [user]
+ * @param {import('@telegram-apps/sdk-solid').User} [user]
  * @returns {DisplayDataRow[]}
  */
 function getUserRows(user) {

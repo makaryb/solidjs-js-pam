@@ -1,5 +1,5 @@
 import { A } from '@solidjs/router';
-import { classNames, useUtils } from '@tma.js/sdk-solid';
+import { classNames, useUtils } from '@telegram-apps/sdk-solid';
 
 import './Link.css';
 
